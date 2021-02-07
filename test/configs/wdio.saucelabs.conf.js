@@ -1,6 +1,6 @@
 const {config} = require('./wdio.shared.conf');
 const defaultBrowserSauceOptions = {
-    build: `Best Practices: Sauce Labs Desktop Web build-${new Date().getTime()}`
+    build: process.env.BUILD_TAG ? process.env.BUILD_TAG : `Best Practices: Sauce Labs Desktop Web build-${new Date().getTime()}` 
 };
 
 // =====================
