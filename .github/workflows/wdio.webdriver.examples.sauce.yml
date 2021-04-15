@@ -32,7 +32,10 @@ jobs:
           SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
           SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
           FIRST_NAME: Mona
-        run: echo "Hello $FIRST_NAME $SAUCE_USERNAME  today is Monday!" 
+        run: |
+          echo ${{ secrets.SAUCE_USERNAME }}
+          echo env.SAUCE_USERNAME
+          echo "Hello $FIRST_NAME $SAUCE_USERNAME  today is Monday!" 
 
       - name: Run tests
         env:
