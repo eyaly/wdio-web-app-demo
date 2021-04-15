@@ -27,15 +27,13 @@ jobs:
       - name: Install dependencies
         run: npm install
       
-      - name: Check env
-        env:
-          SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
-          SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
-          FIRST_NAME: Mona
-        run: |
-          echo ${{ secrets.SAUCE_USERNAME }}
-          echo env.SAUCE_USERNAME
-          echo "Hello $FIRST_NAME $SAUCE_USERNAME  today is Monday!" 
+      - name: Start SC
+        uses: saucelabs/sauce-connect-action@v1
+        with:
+          username: ${{ secrets.SAUCE_USERNAME }}
+          accessKey: ${{ secrets.SAUCE_ACCESS_KEY }}
+          tunnelIdentifier: github-action-tunnel
+          scVersion: 4.6.4
 
       - name: Run tests
         env:
