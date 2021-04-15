@@ -33,6 +33,7 @@ jobs:
           username: ${{ secrets.SAUCE_USERNAME }}
           accessKey: ${{ secrets.SAUCE_ACCESS_KEY }}
           tunnelIdentifier: github-action-tunnel
+          restUrl: https://eu1.api.testobject.com/sc/rest/v1
           scVersion: 4.6.4
 
       - name: Run tests
