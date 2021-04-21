@@ -22,6 +22,7 @@ config.capabilities = [
     /**
      * Desktop browsers
      */
+
     {
         browserName: 'googlechrome',
         platformName: 'Windows 10',
@@ -30,6 +31,7 @@ config.capabilities = [
             ...defaultBrowserSauceOptions,
         },
     },
+        /**
     {
         browserName: 'firefox',
         platformName: 'Windows 10',
@@ -62,12 +64,47 @@ config.capabilities = [
             ...defaultBrowserSauceOptions,
         },
     },
+             */
+    // {
+    //     browserName: 'safari',
+    //     platformName: 'iOS',
+    //     //deviceName: 'iPhone.*',
+    //     platformVersion: '14',
+    // },
 
 ];
 
 // ========
 // Services
 // ========
-config.services = config.services.concat('sauce');
+
+// ============================================
+// Add the Sauce Service, see
+// https://webdriver.io/docs/sauce-service.html
+// for more details
+// ============================================
+config.services = config.services.concat([
+    // Add the service as an array so you can provide options
+    [
+        'sauce',
+        // Enable Sauce Connect
+        {
+            sauceConnect: true,
+            // Provide specific Sauce Connect options
+            // Go to
+            // https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide
+            // for more options
+            // Options need to be camelCase, so `--addtional-arg foo` will become `additionalArg: "foo"`
+            sauceConnectOpts: {
+                // This will write the sc logs to a file
+                logfile: './sc.log',
+                sharedTunnel: 'true',
+                tunnelIdentifier: 'webTunnel'
+
+                // ...
+            }
+        },
+    ],
+]);
 
 exports.config = config;
