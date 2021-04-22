@@ -32,7 +32,7 @@ jobs:
         with:
           username: ${{ secrets.SAUCE_USERNAME }}
           accessKey: ${{ secrets.SAUCE_ACCESS_KEY }}
-          tunnelIdentifier: proxy-tunnel-$GITHUB_RUN_ID
+          tunnelIdentifier: proxy-tunnel-${{github.run_id}}
           restUrl: https://eu-central-1.saucelabs.com/rest/v1
           scVersion: 4.6.4
 
