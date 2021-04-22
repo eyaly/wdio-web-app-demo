@@ -27,14 +27,14 @@ jobs:
       - name: Install dependencies
         run: npm install
       
-      # - name: Start SC
-      #   uses: saucelabs/sauce-connect-action@v1
-      #   with:
-      #     username: ${{ secrets.SAUCE_USERNAME }}
-      #     accessKey: ${{ secrets.SAUCE_ACCESS_KEY }}
-      #     tunnelIdentifier: github-action-tunnel
-      #     restUrl: https://eu-central-1.saucelabs.com/rest/v1
-      #     scVersion: 4.6.4
+      - name: Start SC
+        uses: saucelabs/sauce-connect-action@v1
+        with:
+          username: ${{ secrets.SAUCE_USERNAME }}
+          accessKey: ${{ secrets.SAUCE_ACCESS_KEY }}
+          tunnelIdentifier: github-action-tunnel
+          restUrl: https://eu-central-1.saucelabs.com/rest/v1
+          scVersion: 4.6.4
 
       - name: Run tests
         env:
@@ -42,9 +42,4 @@ jobs:
           SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
           BUILD_TAG: ${{github.repository}} - ${{github.run_number}}
         run: |
-          echo "hi you"
-          echo "$GITHUB_REPOSITORY - $GITHUB_RUN_NUMBER"
-          echo 1
-          echo $BUILD_TAG
-          echo "hi you"
           npm run test.saucelabs.eu
