@@ -44,6 +44,11 @@ jobs:
         run: |
           echo "hi you"
           echo $GITHUB_REPOSITORY
-          echo ${GITHUB_REPOSITORY}
-          echo ${{ secrets.GITHUB_REPOSITORY }}
+          echo 1
+          echo $GITHUB_RUN_NUMBER
+          echo 2
+          echo "$GITHUB_REPOSITORY - $GITHUB_RUN_NUMBER"
+          echo 3
+          echo $BUILD_TAG
+          echo "hi you"
           # npm run test.saucelabs.eu
