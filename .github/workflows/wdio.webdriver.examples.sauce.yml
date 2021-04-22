@@ -51,6 +51,6 @@ jobs:
           echo 3
           echo $BUILD_TAG
           echo 4
-          echo SAUCE_USERNAME
+          echo $SAUCE_USERNAME
           echo "hi you"
           npm run test.saucelabs.eu
