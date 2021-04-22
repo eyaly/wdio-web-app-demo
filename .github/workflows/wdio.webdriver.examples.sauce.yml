@@ -40,4 +40,5 @@ jobs:
         env:
           SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
           SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
+          BUILD_TAG: $GITHUB_REPOSITORY + '-' + $GITHUB_RUN_NUMBER
         run: npm run test.saucelabs.eu
