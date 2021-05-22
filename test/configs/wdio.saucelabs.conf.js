@@ -3,7 +3,7 @@ const defaultBrowserSauceOptions = {
     build: process.env.BUILD_TAG ? process.env.BUILD_TAG : `Best Practices: Sauce Labs Desktop Web build-${new Date().getTime()}` ,
     tags: ["demo", "web", "sauce" ]
 };
-
+//config.maxInstances=1;
 // =====================
 // Sauce specific config
 // =====================
@@ -27,6 +27,7 @@ config.capabilities = [
         browserName: 'googlechrome',
         platformName: 'Windows 10',
         browserVersion: 'latest',
+        maxInstances: 2,
         'sauce:options': {
             ...defaultBrowserSauceOptions,
         },
@@ -38,6 +39,7 @@ config.capabilities = [
         platformName: 'Android',
         browserName: 'chrome',
         deviceOrientation: 'PORTRAIT',
+        maxInstances: 2,
         'sauce:options': {
             tags: ["demo", "web", "sauce" ],
             build: process.env.BUILD_TAG ? process.env.BUILD_TAG : `Best Practices: Sauce Labs Desktop Web build-${new Date().getTime()}` ,
@@ -103,7 +105,7 @@ config.services = config.services.concat([
         'sauce',
         // Enable Sauce Connect
         {
-            sauceConnect: true,
+            sauceConnect: false,
             // Provide specific Sauce Connect options
             // Go to
             // https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide

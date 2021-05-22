@@ -48,6 +48,26 @@ class SwagOverviewPage extends BasePage {
     }
 
     /**
+     * Get the title of the swag title
+     *
+     * @param {number|string} needle
+     *
+     * @return {string}
+     */
+    getSwagTitle(needle) {
+        return this.swag(needle).$('.inventory_item_name').getText();
+    }
+
+    /**
+     * select the swag
+     *
+     * @param {number|string} needle
+     */
+    selectSwagItem(needle){
+        this.swag(needle).$('.inventory_item_name').click();
+    }
+
+    /**
      * Add a swag items to the cart
      *
      * @param {number|string} needle
