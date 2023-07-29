@@ -25,6 +25,5 @@ hs_err_pid*
 .tmp/
 nightwatch/webdriver/examples/update-sauce/tests_output/
 apps
-**/cypress/results/
-**/cypress/videos/
 *.xml
+package-lock.json

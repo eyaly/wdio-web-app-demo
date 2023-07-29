@@ -32,21 +32,21 @@ config.capabilities = [
             ...defaultBrowserSauceOptions,
         },
     },
-    {
-        // The defaults you need to have in your config
-        'appium:deviceName': 'Google Pixel 3 GoogleAPI Emulator',
-        'appium:platformVersion': '10.0',
-        platformName: 'Android',
-        browserName: 'chrome',
-        deviceOrientation: 'PORTRAIT',
-        maxInstances: 2,
-        'sauce:options': {
-            tags: ["demo", "web", "sauce" ],
-            build: process.env.BUILD_TAG ? process.env.BUILD_TAG : `Best Practices: Sauce Labs Desktop Web build-${new Date().getTime()}` ,
-            // You can provide the Appium Version, please check the platform configurator for all possible versions
-            appiumVersion: '1.18.1'
-        },
-    },
+    // {
+    //     // The defaults you need to have in your config
+    //     'appium:deviceName': 'Google Pixel 3 GoogleAPI Emulator',
+    //     'appium:platformVersion': '10.0',
+    //     platformName: 'Android',
+    //     browserName: 'chrome',
+    //     deviceOrientation: 'PORTRAIT',
+    //     maxInstances: 2,
+    //     'sauce:options': {
+    //         tags: ["demo", "web", "sauce" ],
+    //         build: process.env.BUILD_TAG ? process.env.BUILD_TAG : `Best Practices: Sauce Labs Desktop Web build-${new Date().getTime()}` ,
+    //         // You can provide the Appium Version, please check the platform configurator for all possible versions
+    //         appiumVersion: '1.18.1'
+    //     },
+    // },
         /**
     {
         browserName: 'firefox',
